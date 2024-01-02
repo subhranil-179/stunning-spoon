@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Utility */
+
+.logo{
+    height: 40px;
+    width: auto;
+}
+
+
+/* Navbar */
+
+.navbar{
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 60px;
+}
+
+.nav-left{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+.nav-mid{
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right > a{
+    fill: white;
+    margin-inline: auto;
+    margin-right: 1rem;
+}
+
+.nav-mid > ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    height: 100%;
+}
+
+.nav-mid > ul > li{
+}
+
+.nav-mid > ul > li > a{
+    color: white;
+    text-decoration: none;
+}
