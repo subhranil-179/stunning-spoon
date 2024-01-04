@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %} {{category_name}} {% endblock title %}
+
+{% block body %}
+<div>
+    <h1 style="text-transform: capitalize; margin: 2rem;">{{category_name}} Articles</h1>
+    {% include 'article/list.html' %}
+</div>
+{% endblock body %}

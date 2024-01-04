@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from article.models import Article
+from article.models import Article, Category
 
 # Create your views here.
 
@@ -16,3 +16,13 @@ def detail(request, pk):
     article = Article.objects.get(pk=pk)
     context = {"article": article}
     return render(request, "article/detail.html", context)
+
+
+def category(request, name):
+    category_name = Category.objects.get(name=name).name
+    category_articles = Category.objects.get(name=name).article_set.all()
+    context = {
+            "category_name": category_name,
+            "articles": category_articles,
+    }
+    return render(request, "article/category.html", context)

@@ -1,9 +1,18 @@
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat&family=Titillium+Web&display=swap');
+
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Utility */
+
+body{
+    max-width: 2160px;
+    margin: auto;
+}
 
 .logo{
     height: 40px;
@@ -55,13 +64,30 @@
     height: 100%;
 }
 
-.nav-mid > ul > li{
-    padding: 0.5rem;
-}
-
 .nav-mid > ul > li > a{
     color: white;
     text-decoration: none;
+    padding: 0.5rem;
+    transition: color linear .25s;
+}
+
+.nav-mid > ul > li > a:hover{
+    color: limegreen;
+    transition: color linear .25s;
+}
+
+.nav-mid span{
+    display: block;
+    width: 0%;
+    margin: auto;
+    height: 2px;
+    background: limegreen;
+    transition: width linear .5s;
+}
+
+.nav-mid > ul > li > a:hover + span{
+    width: 100%;
+    transition: width linear .5s;
 }
 
 /* Article Home */
@@ -92,7 +118,42 @@
     text-decoration: none;
 }
 
+/* Article Detail */
+
+.article-container{
+    max-width: 1200px;
+    margin: 2rem;
+}
+
+.article-title{
+    font-size: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.article-meta{
+    margin-bottom: 1rem;
+}
+
+.article-meta > div{
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: black;
+    width: fit-content;
+}
+
+.breadcrumb *, .article-meta-published, .article-meta-author{
+    text-decoration: none;
+    color: white;
+}
+
+.breadcrumb a:hover{
+    color: limegreen;
+}
+
 /* Media Queries */
+
 
 @media (max-width: 768px){
     .navbar{
@@ -157,12 +218,4 @@
     #ham-close-svg{
         display: none;
     }
-}
-
-
-/* Blog Detail CSS */
-
-.article-container{
-    max-width: 1200px;
-    margin: 2rem;
 }

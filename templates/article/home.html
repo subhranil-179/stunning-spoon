@@ -1,17 +1,5 @@
 {% extends 'base.html' %}
 {% block title %} Homepage {% endblock title %}
 {% block body %}
-<ol class="article-list">
-    {% for article in articles %}
-            <li class="article-li">
-                {% if article.thumbnail %}
-                    <img class="thumbnail" src="{{article.thumbnail.url}}" alt="">
-                {% endif %}
-                <div>
-                    <h2><a href="{% url 'article:detail' article.pk %}">{{article.title}}</a></h2>
-                    <p>{{article.description}}</p>
-                </div>
-            </li>
-    {% endfor %}
-</ol>
+{% include 'article/list.html' %}
 {% endblock body %}

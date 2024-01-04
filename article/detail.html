@@ -3,7 +3,16 @@
 
 {% block body %}
 <div class="article-container">
-    <h1>{{article.title}}</h1>
+    <h1 class="article-title">{{article.title}}</h1>
+    <div class="article-meta">
+        <div class="breadcrumb">
+            <a href="{% url 'article:home' %}">articles</a>
+            <span>/</span>
+            <a href="{{article.category.first.get_absolute_url}}">{{article.category.first}}</a>
+        </div>
+        <div class="article-meta-published">{{article.published}}</div>
+        <div class="article-meta-author">{{article.author}}</div>
+    </div>
     <p>{{article.body}}</p>
 </div>
 {% endblock body %}
