@@ -37,6 +37,10 @@
     align-items: center;
 }
 
+.ham-menu{
+    display: none;
+}
+
 .nav-right > a{
     fill: white;
     margin-inline: auto;
@@ -52,9 +56,113 @@
 }
 
 .nav-mid > ul > li{
+    padding: 0.5rem;
 }
 
 .nav-mid > ul > li > a{
     color: white;
     text-decoration: none;
+}
+
+/* Article Home */
+
+.article-list{
+    max-width: 720px;
+    margin-inline: auto;
+}
+
+.article-li{
+    list-style: none;
+    margin: 1rem;
+    background-color: beige;
+    padding-bottom: 0.5rem;
+}
+
+.thumbnail{
+    width: 100%;
+}
+
+.article-li h2, .article-li p{
+    text-align: center;
+    margin-inline: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.article-li a{
+    text-decoration: none;
+}
+
+/* Media Queries */
+
+@media (max-width: 768px){
+    .navbar{
+        grid-template-rows: 60px min-content;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+    }
+    .nav-left{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        padding-left: 0;
+    }
+    .nav-right{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    .nav-mid{
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        background: inherit;
+        z-index: 1;
+        transition: top ease-in-out 1s;
+        position: relative;
+        top: calc( -100% - 60px);
+    }
+    .nav-left a{
+        display: block;
+        margin: auto;
+    }
+    .nav-mid ul {
+        flex-direction: column;
+        padding-block: 0.5rem;
+    }
+    .ham-menu {
+        display: block;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        width: 32px;
+        height: 32px;
+        margin-left: 1rem;
+        background: black;
+        outline: 0;
+        border: 0;
+        z-index: 2;
+    }
+    .ham-menu:hover{
+        cursor: pointer;
+    }
+    .ham-menu svg {
+        display: block;
+        margin-inline: auto;
+        fill:white;
+    }
+    #ham-close-svg{
+        display: none;
+    }
+}
+
+
+/* Blog Detail CSS */
+
+.article-container{
+    max-width: 1200px;
+    margin: 2rem;
 }
