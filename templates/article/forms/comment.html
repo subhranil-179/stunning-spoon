@@ -1,0 +1,6 @@
+<form class="comment-form" action="" method="POST">
+    {% csrf_token %}
+    {{comment_form.text}}
+    {{comment_form.author}}
+    <button id="comment_submit" type="submit">Post</button>
+</form>

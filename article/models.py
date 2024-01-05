@@ -36,3 +36,13 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    author = models.CharField(max_length=50)
+    text = models.CharField(max_length=1024)
+    published = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.text

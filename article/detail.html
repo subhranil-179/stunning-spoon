@@ -10,9 +10,18 @@
             <span>/</span>
             <a href="{{article.category.first.get_absolute_url}}">{{article.category.first}}</a>
         </div>
-        <div class="article-meta-published">{{article.published}}</div>
+        <div class="article-meta-published">{{article.published|date:"d M Y"}}</div>
         <div class="article-meta-author">{{article.author}}</div>
     </div>
     <p>{{article.body}}</p>
+    <div class="comments-container">
+        {% include 'article/forms/comment.html' %}
+        {% for comment in article.comment_set.all %}
+        <div class="comment">
+            <div class="comment-text">{{comment.text}}</div>
+            <div class="comment-date">~ {{comment.author}}, {{comment.published|date:"d M Y"}}</div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock body %}

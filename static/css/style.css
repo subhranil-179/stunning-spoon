@@ -72,7 +72,7 @@ body{
 }
 
 .nav-mid > ul > li > a:hover{
-    color: limegreen;
+    color: lime;
     transition: color linear .25s;
 }
 
@@ -81,7 +81,7 @@ body{
     width: 0%;
     margin: auto;
     height: 2px;
-    background: limegreen;
+    background: lime;
     transition: width linear .5s;
 }
 
@@ -149,7 +149,66 @@ body{
 }
 
 .breadcrumb a:hover{
-    color: limegreen;
+    color: lime;
+}
+
+/* Article Detail Comments */
+
+.comments-container{
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+}
+
+.comment, .comment-form{
+    margin: 1rem;
+    margin-inline: auto;
+    background: black;
+    color: white;
+    border-radius: 8px;
+    max-width: 720px;
+    padding: 1rem;
+}
+
+.comment-date{
+    width: fit-content;
+    margin-left: auto;
+}
+
+.comment-form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.comment-form *{
+    margin: 0.5rem;
+}
+
+#id_text{
+    height: 32px;
+    align-self: normal;
+    padding-inline: 6px;
+}
+
+#id_author{
+    max-width: 128px;
+    padding-inline: 6px;
+}
+#comment_submit{
+    border: 0;
+    outline: 0;
+    padding: 6px;
+    background: black;
+    color: lime;
+    border: 2px solid lime;
+    border-radius: 8px;
+    transition: all linear 0.5s;
+}
+#comment_submit:hover{
+    cursor: pointer;
+    background: lime;
+    color: black;
+    transition: all linear 0.5s;
 }
 
 /* Media Queries */

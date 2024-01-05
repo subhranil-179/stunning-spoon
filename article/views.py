@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from article.forms import CommentForm
 from article.models import Article, Category
+
 
 # Create your views here.
 
@@ -14,7 +17,20 @@ def home(request):
 
 def detail(request, pk):
     article = Article.objects.get(pk=pk)
-    context = {"article": article}
+    comment_form = CommentForm()
+    context = {
+            "article": article,
+            "comment_form": comment_form,
+    }
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.article = article
+            comment.save()
+            return redirect(article)
+        context.update({"comment_form": comment_form})
+
     return render(request, "article/detail.html", context)
 
 
