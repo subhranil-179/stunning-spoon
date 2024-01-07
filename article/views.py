@@ -15,8 +15,8 @@ def home(request):
     return render(request, "article/home.html", context)
 
 
-def detail(request, pk):
-    article = Article.objects.get(pk=pk)
+def detail(request, slug):
+    article = Article.objects.get(slug=slug)
     comment_form = CommentForm()
     context = {
             "article": article,

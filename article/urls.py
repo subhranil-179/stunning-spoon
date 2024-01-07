@@ -6,5 +6,5 @@ app_name = "article"
 urlpatterns = [
     path("", home, name="home"),
     path("category/<str:name>", category, name="category"),
-    path("article/<int:pk>", detail, name="detail")
+    path("article/<slug:slug>", detail, name="detail")
 ]

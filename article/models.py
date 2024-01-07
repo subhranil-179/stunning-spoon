@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -27,12 +28,17 @@ class Article(models.Model):
     title = models.CharField(unique=True, max_length=150)
     body = models.TextField()
     description = models.CharField(max_length=500, blank=True)
+    slug = models.CharField(max_length=240, unique=True, null=True)
     published = models.DateTimeField(auto_now_add=True)
     thumbnail = models.ImageField(upload_to='thumbnails/', blank=True)
     category = models.ManyToManyField(Category)
 
     def get_absolute_url(self):
-        return reverse("article:detail", kwargs={"pk": self.pk})
+        return reverse("article:detail", kwargs={"slug": self.slug})
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.slug)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
